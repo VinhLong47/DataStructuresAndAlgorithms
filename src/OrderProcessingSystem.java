@@ -85,7 +85,7 @@ public class OrderProcessingSystem {
     }
 
     // Merge sort method
-    private void mergeSort(List<Book> books, int left, int right, String sortBy) {
+    void mergeSort(List<Book> books, int left, int right, String sortBy) {
         if (left < right) {
             // Find the middle point
             int mid = (left + right) / 2;
@@ -169,7 +169,7 @@ public class OrderProcessingSystem {
         if (foundOrder != null) {
             System.out.println(foundOrder);
         } else { // Display message if order not found
-            System.out.println("Order not found.");
+            System.out.println("Order not found!");
         }
     }
 
@@ -177,5 +177,14 @@ public class OrderProcessingSystem {
     // Display all orders
     public void displayAllOrders() {
         orderQueue.displayQueue();
+    }
+
+    public void viewCurrentOrder() {
+        Order currentOrder = orderQueue.peek();
+        if (currentOrder != null) {
+            System.out.println("Current order in queue: \n" + currentOrder + "\n");
+        } else {
+            System.out.println("No orders are currently in the queue.");
+        }
     }
 }

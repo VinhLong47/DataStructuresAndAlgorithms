@@ -18,6 +18,10 @@ public class OrderQueue {
         return queue.isEmpty();
     }
 
+    public Order peek() {
+        return queue.peek();
+    }
+
     public void displayQueue() {
         if (!queue.isEmpty()) {
             for (Order order : queue) {
