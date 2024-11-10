@@ -24,12 +24,27 @@ public class OrderProcessingSystem {
         }
     }
 
+    // Display all orders
+    public void displayAllOrders() {
+        orderQueue.displayQueue();
+    }
+
+    // Display current order in the queue
+    public void viewCurrentOrder() {
+        Order currentOrder = orderQueue.peek();
+        if (currentOrder != null) {
+            System.out.println("Current order in queue: \n" + currentOrder + "\n");
+        } else {
+            System.out.println("No orders are currently in the queue.");
+        }
+    }
+
     // Merge method
     private void merge(List<Book> books, int left, int mid, int right, String sortBy) {
         int n1 = mid - left + 1;
         int n2 = right - mid;
 
-        // Create temporary arrays
+        // Create temporary arrays for both halves
         List<Book> tempLeftArray = new ArrayList<>(n1);
         List<Book> tempRightArray = new ArrayList<>(n2);
 
@@ -170,21 +185,6 @@ public class OrderProcessingSystem {
             System.out.println(foundOrder);
         } else { // Display message if order not found
             System.out.println("Order not found!");
-        }
-    }
-
-
-    // Display all orders
-    public void displayAllOrders() {
-        orderQueue.displayQueue();
-    }
-
-    public void viewCurrentOrder() {
-        Order currentOrder = orderQueue.peek();
-        if (currentOrder != null) {
-            System.out.println("Current order in queue: \n" + currentOrder + "\n");
-        } else {
-            System.out.println("No orders are currently in the queue.");
         }
     }
 }
